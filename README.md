@@ -15,4 +15,4 @@ This is the code associated with the paper [Model Assessment and Selection under
 - Provides an example of code usage using synthetic data and produces figures presented in the paper
 
 ## Results
-Figures using synthetic data presented in the paper can be reproduced using <a href=".code_syn/figures.ipynb">`figures.ipynb`</a>.
+Figures using synthetic data presented in the paper can be reproduced using <a href="./code_syn/figures.ipynb">`figures.ipynb`</a>.
