@@ -1,24 +1,17 @@
 # Model Assessment and Selection under Temporal Distribution Shift
+This is the code associated with the paper [Model Assessment and Selection under Temporal Distribution Shift].
 
-## Overview
-The code provided here implements the algorithms described in our paper, and examples using synthetic data.
+## File Overview
+### 1. `ARW.py`
+- Provides functions that implement the single-elimination tournament for model selection via Adaptive Rolling Window (ARW)
 
-## Requirements
-To run the code, you will need the following dependencies:
-- [List of dependencies with version numbers]
+### 2. `algo_syn.py`
+- Provides algorithms for training with fixed window sizes, model selection with fixed window sizes, and model selection using Adaptive Rolling Window(ARW)
+### 3. `generate_syn_data.py`
+- Provides functions for generating synthetic data
 
-## Setup
-1. Clone this repository to your local machine.
-2. Install the required dependencies using `pip install -r requirements.txt` (or any other package manager used).
-
-## Usage
-Here's how you can use the code:
-1. [Detailed instructions for running specific scripts or modules]
-2. [Any important configuration options or command-line arguments]
-3. [Examples of how to run different experiments or analyses]
-
-## Data
-The data used in our experiments is not included in this repository due to size constraints. However, instructions for obtaining the data can be found in [link to data repository or website].
+### 4. `figures.ipynb`
+- Produces figures presented in the paper
 
 ## Results
-Figures presented in the paper can be reproduced using <a href="./figures.ipynb">`figures.ipynb`</a>.
+Figures using synthetic data presented in the paper can be reproduced using <a href="./figures.ipynb">`figures.ipynb`</a>.
