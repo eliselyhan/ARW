@@ -12,7 +12,7 @@ This is the code associated with the paper [Model Assessment and Selection under
 - Provides functions for generating synthetic data
 
 ### 4. `figures.ipynb`
-- Produces figures presented in the paper
+- Provides an example of code usage using synthetic data and produces figures presented in the paper
 
 ## Results
 Figures using synthetic data presented in the paper can be reproduced using <a href="./figures.ipynb">`figures.ipynb`</a>.
