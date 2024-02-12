@@ -1,7 +1,7 @@
 # Model Assessment and Selection under Temporal Distribution Shift
 This is the code associated with the paper [Model Assessment and Selection under Temporal Distribution Shift].
 
-## File Overview `./code_syn`
+## File Overview 
 ### 1. <a href="./code_syn/ARW.py">`ARW.py`</a>
 - Provides functions that implement the Single-Elimination Tournament for Model Selection (Algorithm 3 in the paper) via Adaptive Rolling Window(ARW)
 
