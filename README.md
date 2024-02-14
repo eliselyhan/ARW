@@ -1,5 +1,5 @@
 # Model Assessment and Selection under Temporal Distribution Shift
-This is the code associated with the paper [Model Assessment and Selection under Temporal Distribution Shift].
+This is the code associated with the paper [Model Assessment and Selection under Temporal Distribution Shift](https://arxiv.org/abs/2402.08672).
 
 ## File Overview 
 ### 1. <a href="./code_syn/ARW.py">`ARW.py`</a>
