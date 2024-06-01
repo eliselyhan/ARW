@@ -91,7 +91,7 @@ def ARWME(U, B_arr, delta = 0.1, M = 10):
 
 # Pairwise comparison
 
-def pairwise_comparison(loss_1, loss_2, B_arr, delta = 0.1, M = 10):
+def pairwise_comparison(loss_1, loss_2, B_arr, delta = 0.1, M = 0):
     
     """ Pairwise comparison between two models
     Args:
@@ -116,7 +116,7 @@ def pairwise_comparison(loss_1, loss_2, B_arr, delta = 0.1, M = 10):
 
 # Model selection through a single-elimination tournament
 
-def tournament_selection(losses, B_arr, delta = 0.1, M = 10, seed = 2024):
+def tournament_selection(losses, B_arr, delta = 0.1, M = 0, seed = 2024):
 
     """ select the best model through a tournament 
 
