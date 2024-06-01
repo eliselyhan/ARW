@@ -50,7 +50,7 @@ def prepare(U, B_arr):
 
 # Model evaluation
 
-def ARWME(U, B_arr, delta = 0.1, M = 10):
+def ARWME(U, B_arr, delta = 0.1, M = 0):
 
     """ Selecting the best window size
     Args:
