@@ -1,5 +1,6 @@
 import numpy as np
 
+
 # Compute summary statistics
 
 def prepare(U, B_arr):
@@ -8,15 +9,12 @@ def prepare(U, B_arr):
     Args:
         U (np.array): 1D array of length B_1 + ... + B_t
         B_arr: (np.array) stores the sample size for each period
-    Returns:
-        B_all, mu_hat_all, v_hat_all (np.arrays)
     """
 
     period_ends = np.cumsum(B_arr)
     period_starts = period_ends - B_arr
-
     t = len(B_arr)
-    
+
     # Compute first and second moments for each period, stored in reverse order
     moments_1 = np.array( [np.mean( U[period_starts[i]:period_ends[i]] ) for i in range(t)] )[::-1]
     moments_2 = np.array( [np.mean( U[period_starts[i]:period_ends[i]] ** 2 ) for i in range(t)] )[::-1]
@@ -34,14 +32,7 @@ def prepare(U, B_arr):
         tmp = np.zeros(t)
         if t > 1:
             tmp[1:] = B_all[1:] / (B_all[1:] - 1)
-    
-    
-    v_sqr_all = tmp * (mu_2_hat_all - mu_hat_all ** 2) 
-
-    #clip negative entries to 0
-    v_sqr_all[v_sqr_all < 0] = 0
-
-    v_hat_all = np.sqrt(v_sqr_all) # the k-th entry is v_hat_{t, k+1}
+    v_hat_all = np.sqrt( tmp * (mu_2_hat_all - mu_hat_all ** 2) ) # the k-th entry is v_hat_{t, k+1}
 
     return B_all, mu_hat_all, v_hat_all
 
@@ -50,16 +41,15 @@ def prepare(U, B_arr):
 # Model evaluation
 
 def ARWME(U, B_arr, delta = 0.1, M = 10):
-
-    """ Adaptive Rolling Window Mean Estimation(ARWME): selecting the best window size
+    """ Selecting the best window size
     Args:
         U (np.array): 1D array of length B_1 + ... + B_t
         B_arr: (np.array) stores the sample size for each period
         delta, M (float): tuning parameters
 
     Returns:
-        k_hat (int): best window size
-        mu_hat_all[k_hat-1] (float): estimated population mean using the best window size
+        best_window (int): best window size
+        best_mean (float): estimated population mean
     """
 
     # Compute B_tk, mu_tk and v_tk for all k
@@ -73,7 +63,7 @@ def ARWME(U, B_arr, delta = 0.1, M = 10):
         if B_all[k] == 1:
             psi_hat[k] = M
         else:
-            psi_hat[k] = v_hat_all[k] * np.sqrt(2 * np.log(2/delta) / B_tk ) + (8/3) * M * np.log(2/delta) / ( B_tk-1 )
+            psi_hat[k] = v_hat_all[k] * np.sqrt( 2 * np.log(2/delta) / B_tk ) + 8 * M * np.log(2/delta) / ( 3 * (B_tk-1) )
     
     # Compute phi_hat_k for all k
     phi_hat = np.empty(t)
@@ -88,7 +78,7 @@ def ARWME(U, B_arr, delta = 0.1, M = 10):
 
 
 
-# Pairwise comparison 
+# Pairwise comparison
 
 def pairwise_comparison(loss_1, loss_2, B_arr, delta = 0.1, M = 10):
     
@@ -114,10 +104,10 @@ def pairwise_comparison(loss_1, loss_2, B_arr, delta = 0.1, M = 10):
 
 
 # Model selection through a single-elimination tournament
-    
+
 def tournament_selection(losses, B_arr, delta = 0.1, M = 10, seed = 2024):
 
-    """ select the best model through a tournament at time t
+    """ select the best model through a tournament 
 
     Args:
         losses (list of np.arrays)): len = m; each element is a 1D array of length B_1 + ... + B_t
@@ -128,7 +118,7 @@ def tournament_selection(losses, B_arr, delta = 0.1, M = 10, seed = 2024):
     Returns:
         best_model_index (int): index of the best model
     """
-
+    
     np.random.seed(seed)
     num_models = len(losses)
     
@@ -161,3 +151,8 @@ def tournament_selection(losses, B_arr, delta = 0.1, M = 10, seed = 2024):
         num_models = len(candidates)
         
     return int(candidates[0])
+
+
+
+
+
