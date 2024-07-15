@@ -12,8 +12,6 @@ import re
 class readArxiv:
     
     def __init__(self):
-        # TODO: change number of rows to an argument; check order; read_json intervals
-        #self.arxiv_df = pd.read_json('arxiv-metadata-oai-snapshot.json', lines=True)# nrows=rows)
 
         #create a set of stopwords
         gist_file = open("../arxiv_data/stopwords.txt", "r")
