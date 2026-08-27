@@ -1,6 +1,6 @@
 # Model Assessment and Selection under Temporal Distribution Shift
 
-Paper: Han, E., Huang, C. and Wang, K., 2024. Model Assessment and Selection under Temporal Distribution Shift. [arXiv preprint arXiv:2402.08672](https://arxiv.org/abs/2402.08672). To appear in ICML 2024.
+Paper: Han, E., Huang, C. and Wang, K., 2024. Model Assessment and Selection under Temporal Distribution Shift. [arXiv preprint arXiv:2402.08672](https://arxiv.org/abs/2402.08672). ICML 2024.
 
 ## Python implementations
 
@@ -17,10 +17,16 @@ The folders `code-synthetic-data`, `code-arxiv`, and `code-housing` contain all 
 
 ## Citation
 ```
-@article{HHW24,
-  title={Model Assessment and Selection under Temporal Distribution Shift},
-  author={Han, Elise and Huang, Chengpiao and Wang, Kaizheng},
-  journal={arXiv preprint arXiv:2402.08672},
-  year={2024}
+@InProceedings{HHW24,
+  title = {Model Assessment and Selection under Temporal Distribution Shift},
+  author = {Han, Elise and Huang, Chengpiao and Wang, Kaizheng},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+  pages = {17374--17392},
+  year = {2024},
+  volume = {235},
+  series = {Proceedings of Machine Learning Research},
+  month = {21--27 Jul},
+  publisher = {PMLR},
+  url = {https://proceedings.mlr.press/v235/han24b.html},
 }
 ```
